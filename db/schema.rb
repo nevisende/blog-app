@@ -7,55 +7,52 @@
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
-#ra
+#
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
-    # These are extensions that must be enabled in order to support this database
-    enable_extension "plpgsql"
+ActiveRecord::Schema[7.0].define(version: 2022_04_04_110335) do
+  create_table "comments", force: :cascade do |t|
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "post_id", null: false
+    t.integer "author_id", null: false
+    t.index ["author_id"], name: "index_comments_on_author_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+  end
 
-    create_table "comments", force: :cascade do |t|
-      t.bigint "author_id", null: false
-      t.bigint "post_id", null: false
-      t.datetime "created_at", null: false
-      t.datetime "updated_at", null: false
-      t.text "text"
-      t.index ["author_id"], name: "index_comments_on_author_id"
-      t.index ["post_id"], name: "index_comments_on_post_id"
-    end
-  
-    create_table "likes", force: :cascade do |t|
-      t.bigint "post_id", null: false
-      t.datetime "created_at", null: false
-      t.datetime "updated_at", null: false
-      t.bigint "author_id", null: false
-      t.index ["author_id"], name: "index_likes_on_author_id"
-      t.index ["post_id"], name: "index_likes_on_post_id"
-    end
-  
-    create_table "posts", force: :cascade do |t|
-      t.bigint "author_id", null: false
-      t.datetime "created_at", null: false
-      t.integer "comments_counter"
-      t.string "title"
-      t.text "text"
-      t.integer "likes_counter"
-      t.datetime "updated_at", null: false
-      t.index ["author_id"], name: "index_posts_on_author_id"
-    end
-  
-    create_table "users", force: :cascade do |t|
-      t.text "bio"
-      t.string "name"
-      t.string "photo"
-      t.integer "posts_counter"
-      t.datetime "created_at", null: false
-      t.datetime "updated_at", null: false
-    end
-  
-    add_foreign_key "comments", "users", column: "author_id"
-    add_foreign_key "likes", "users", column: "author_id"
-    add_foreign_key "posts", "users", column: "author_id"
-    add_foreign_key "likes", "posts"
-    add_foreign_key "comments", "posts"
+  create_table "likes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "post_id", null: false
+    t.integer "author_id", null: false
+    t.index ["author_id"], name: "index_likes_on_author_id"
+    t.index ["post_id"], name: "index_likes_on_post_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "comments_counter"
+    t.integer "likes_counter"
+    t.text "text"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "author_id", null: false
+    t.index ["author_id"], name: "index_posts_on_author_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.text "bio"
+    t.string "photo"
+    t.integer "posts_counter"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users", column: "author_id"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users", column: "author_id"
+  add_foreign_key "posts", "users", column: "author_id"
 end
