@@ -1,1 +1,31 @@
-<h1>The list of post for given specific users' post id</h1>
+<section class="posts-section">
+  <% if @user %>
+    <% if @post %>
+      <div>
+        <div>
+          <h2><%= @post.title %> by <%= @post.author.name %></h2>
+          <div class="post-info">Comments: <%= @post.comments.length %>, Likes: <%= @post.likes.length %></div>
+        </div>
+        <p>
+        <%= @post.text %>
+        </p>
+      </div>
+      <% if @post.comments.length != 0 %>
+        <ul>
+          <% @post.recent_comments.each do |comment| %>
+            <li>
+            <span><%= comment.author.name %> : </span>
+            <span> <%= comment.text %> </span>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <h2>No comments added </h2>
+      <% end %>
+    <% else %>
+      <h2>Not founded</h2>
+    <% end %>
+  <% else %>
+    <h1>Not founded</h1>
+  <% end %>
+</section>  
