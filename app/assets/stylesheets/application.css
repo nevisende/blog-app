@@ -29,40 +29,38 @@ ul {
 }
 
 .user-card {
-   display: flex;
-   gap: 1em;
-   width: 100%;
-   height: 10rem;
-   margin: 1rem;
- }
+  display: flex;
+  gap: 1em;
+  width: 100%;
+  height: 10rem;
+  margin: 1rem;
+}
 
- .user-card-photo {
-   width: 10em;
-   height: 10em;
-   border-radius: 100%;
- }
+.user-card-photo {
+  width: 10em;
+  height: 10em;
+  border-radius: 100%;
+}
 
-
-
- .user-card-header {
+.user-card-header {
   width: 80%;  
   margin-left: 2rem;
- }
+}
 
- .user-card-username {
-   font-size: 2rem;
-   font-weight: 800;
- }
+.user-card-username {
+  font-size: 2rem;
+  font-weight: 800;
+}
 
- .user-card-postnumber {
-   text-align: right;
-   font-size: 1.3rem;
- }
+.user-card-postnumber {
+  text-align: right;
+  font-size: 1.3rem;
+}
 
- .user-bio {
-   margin: 2.3rem;
-   font-size: 1.3rem;
- }
+.user-bio {
+  margin: 2.3rem;
+  font-size: 1.3rem;
+}
 
 .post-section {
   width: 100%;
@@ -77,17 +75,18 @@ ul {
   flex-direction: column;
   font-size: 1.3rem;
 }
- .post-info {
+
+.post-info {
   text-align: right;
   margin-right: 2.3rem;
   justify-self: right;
- }
+}
 
- .post-btn {
-   align-self: center;
-   border: 1px solid;
-   box-shadow: 0.3rem 0.5rem;
-   text-align: center;
-   padding: 10px;
-   width: 7rem;
- }
+.post-btn {
+  align-self: center;
+  border: 1px solid;
+  box-shadow: 0.3rem 0.5rem;
+  text-align: center;
+  padding: 10px;
+  width: 7rem;
+}
