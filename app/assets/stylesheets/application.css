@@ -28,6 +28,14 @@ ul {
   list-style: none;
 }
 
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mt-3 {
+  margin-top: 3rem;
+}
+
 .user-card {
   display: flex;
   gap: 1em;
@@ -60,6 +68,14 @@ ul {
 .user-bio {
   margin: 2.3rem;
   font-size: 1.3rem;
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+.user-comment {
+  border: 1px solid black;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .post-section {
@@ -70,10 +86,14 @@ ul {
 
 .posts-section {
   width: 100%;
-  margin: 2rem;
   display: flex;
   flex-direction: column;
   font-size: 1.3rem;
+}
+
+.bordered-box {
+  border: 1px solid black;
+  padding: 1rem;
 }
 
 .post-info {

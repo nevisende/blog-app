@@ -1,7 +1,7 @@
 <section class="posts-section">
   <% if @user %>
     <% if @post %>
-      <div>
+      <div class="bordered-box">
         <div>
           <h2><%= @post.title %> by <%= @post.author.name %></h2>
           <div class="post-info">Comments: <%= @post.comments.length %>, Likes: <%= @post.likes.length %></div>
@@ -11,7 +11,7 @@
         </p>
       </div>
       <% if @post.comments.length != 0 %>
-        <ul>
+        <ul class="bordered-box">
           <% @post.recent_comments.each do |comment| %>
             <li>
             <span><%= comment.author.name %> : </span>

@@ -1,9 +1,9 @@
 <section class="users-container">
-<% User.all.each do |user| %>
+<% @all_users.each do |user| %>
     <div class="user-card">
       <a href="<%= users_path + '/' + user.id.to_s %>" class="user-link">
         <img class="user-card-photo" src="<%= user.photo %>"> 
-      <div class="user-card-header">
+      <div class="user-card-header bordered-box">
         <h2 class="user-card-username" ><%= user.name %> </h2>
       </a>
         <div class="user-card-postnumber">Number of Posts : <%= user.posts.length %> </div>

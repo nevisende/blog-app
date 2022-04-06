@@ -2,7 +2,7 @@
   <% if @user %>
   <div class="user-card">
     <img class="user-card-photo" src="<%= @user.photo %>"> 
-    <div class="user-card-header">
+    <div class="user-card-header bordered-box">
       <h2 class="user-card-username" ><%= @user.name %> </h2>
       <div class="user-card-postnumber">Number of Posts : <%= @user.posts.length %> </div>
     </div>
@@ -15,7 +15,7 @@
   <ul >
   <% @user.recent_posts.each do |post| %>
     <a href="<%= users_path + "/" + @user.id.to_s + "/posts/" + post.id.to_s %>">
-      <li>
+      <li class="user-comment">
         <h3><%= post.title %></h3>
         <p><%= post.text %></p>
         <div class="post-info">Comments: <%= post.comments.length %>, Likes: <%= post.likes.length %></div>
