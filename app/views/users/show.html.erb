@@ -1,1 +1,30 @@
-<h1>The list of a specific user</h1> 
+<section class="post-section">
+  <% if @user %>
+  <div class="user-card">
+    <img class="user-card-photo" src="<%= @user.photo %>"> 
+    <div class="user-card-header bordered-box">
+      <h2 class="user-card-username" ><%= @user.name %> </h2>
+      <div class="user-card-postnumber">Number of Posts : <%= @user.posts.length %> </div>
+    </div>
+  </div>
+  <div class="user-bio">
+    <p>Bio </p>
+    <p><%= @user.bio %></p>
+  </div>
+  <hr style="width: 90vw"/>
+  <ul >
+  <% @user.recent_posts.each do |post| %>
+    <a href="<%= users_path + "/" + @user.id.to_s + "/posts/" + post.id.to_s %>">
+      <li class="user-comment">
+        <h3><%= post.title %></h3>
+        <p><%= post.text %></p>
+        <div class="post-info">Comments: <%= post.comments.length %>, Likes: <%= post.likes.length %></div>
+      </li>
+    </a>
+  <% end %>
+  </ul>
+  <a class="post-btn" href="<%= users_path + "/" + @user.id.to_s + "/posts" %>">See all posts</a>
+  <% else %>
+  <h2>Not Found</h2>
+  <% end %>
+</section>  

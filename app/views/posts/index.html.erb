@@ -1,1 +1,36 @@
-<h1>The list of posts for given specific user</h1> 
+<section class="posts-section">
+  <% if @user %>
+    <div class="user-card">
+      <img class="user-card-photo" src="<%= @user.photo %>"> 
+      <div class="user-card-header bordered-box">
+        <h2 class="user-card-username" ><%= @user.name %> </h2>
+        <div class="user-card-postnumber">Number of Posts : <%= @user.posts.length %> </div>
+      </div>
+    </div>
+    <ul class="mt-3">
+    <% @user.posts.each do |post| %>
+      <a href="<%= users_path + "/" + @user.id.to_s + "/posts/" + post.id.to_s %>" >
+      <li class="mb-1"> 
+        <div class="bordered-box">
+          <h2><%= post.title %></h2>
+          <p><%= post.text %></p>
+          <div class="post-info">Comments: <%= post.comments.length %>, Likes: <%= post.likes.length %></div>
+        </div>
+        <% if post.comments.length != 0 %>
+          <div class="bordered-box">
+            <% post.recent_comments.each do |comment| %>
+              <div>
+                <span><%= comment.author.name %> : </span>
+                <span> <%= comment.text %> </span>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+    <% end %>
+       </li>
+      </a>
+    </ul>
+  <% else %>
+    <h2> Not Found</h2>
+  <% end %>
+</section>  
