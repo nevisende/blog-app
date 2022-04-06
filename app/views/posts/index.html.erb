@@ -9,12 +9,15 @@
     </div>
     <ul class="mt-3">
     <% @user.posts.each do |post| %>
-      <a href="<%= users_path + "/" + @user.id.to_s + "/posts/" + post.id.to_s %>" >
       <li class="mb-1"> 
         <div class="bordered-box">
-          <h2><%= post.title %></h2>
-          <p><%= post.text %></p>
-          <div class="post-info">Comments: <%= post.comments.length %>, Likes: <%= post.likes.length %></div>
+          <a href="<%= users_path + "/" + @user.id.to_s + "/posts/" + post.id.to_s %>" >
+            <h2><%= post.title %></h2>
+            <p><%= post.text %></p>
+            
+            <div class="post-info">Comments: <%= post.comments.length %>, Likes: <%= post.likes.length %></div>
+          </a>
+          <%= render partial: "posts/like", locals: { url: "/users/#{@user.id}/posts/#{post.id}/like", post: post } %>
         </div>
         <% if post.comments.length != 0 %>
           <div class="bordered-box">
@@ -28,7 +31,7 @@
         <% end %>
     <% end %>
        </li>
-      </a>
+     
     </ul>
   <% else %>
     <h2> Not Found</h2>
