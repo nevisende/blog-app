@@ -15,17 +15,20 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
+    @post.update_posts_counter
 
     respond_to do |format|
       if @post.save
+        flash[:notice] = 'Post created succesfully'
         format.html { redirect_to "#{users_path}/#{current_user.id}" }
       else
+        flash[:notice] = 'Failed creation a post. Try again'
         format.html { render :new }
       end
     end
   end
 
   def post_params
-    params.require(:post).permit(:author_id, :title, :text)
+    params.require(:post).permit(:author_id, :title, :text, :comments_counter, :likes_counter)
   end
 end
