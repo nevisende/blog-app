@@ -5,11 +5,13 @@
         <div>
           <h2><%= @post.title %> by <%= @post.author.name %></h2>
           <div class="post-info">Comments: <%= @post.comments.length %>, Likes: <%= @post.likes.length %></div>
+          <%= render partial: "posts/like", locals: { url: "/users/#{@user.id}/posts/#{@post.id}/like", post: @post } %>
         </div>
         <p>
         <%= @post.text %>
         </p>
       </div>
+      <%= render partial: "posts/add_comment" %>
       <% if @post.comments.length != 0 %>
         <ul class="bordered-box">
           <% @post.recent_comments.each do |comment| %>

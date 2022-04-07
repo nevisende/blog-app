@@ -14,15 +14,20 @@
   <hr style="width: 90vw"/>
   <ul >
   <% @user.recent_posts.each do |post| %>
-    <a href="<%= users_path + "/" + @user.id.to_s + "/posts/" + post.id.to_s %>">
       <li class="user-comment">
-        <h3><%= post.title %></h3>
-        <p><%= post.text %></p>
-        <div class="post-info">Comments: <%= post.comments.length %>, Likes: <%= post.likes.length %></div>
+        <a href="<%= users_path + "/" + @user.id.to_s + "/posts/" + post.id.to_s %>">
+          <h3><%= post.title %></h3>
+          <p><%= post.text %></p>
+          <div class="post-info">Comments: <%= post.comments.length %>, Likes: <%= post.likes.length %></div>
+        </a>
+        <%= render partial: 'posts/like', locals: { url: "/users/#{@user.id}/posts/#{post.id}/like", post: post } %>
       </li>
-    </a>
+    
   <% end %>
   </ul>
+  <% if @user == current_user %>
+    <%= render partial: "posts/new" %>
+  <% end %>
   <a class="post-btn" href="<%= users_path + "/" + @user.id.to_s + "/posts" %>">See all posts</a>
   <% else %>
   <h2>Not Found</h2>
