@@ -7,5 +7,8 @@ class CreatePosts < ActiveRecord::Migration[7.0]
       t.string :title
       t.timestamps
     end
+
+    change_column_default :posts, :posts_counter, 0
+    change_column_default :posts, :likes_counter, 0
   end
 end
