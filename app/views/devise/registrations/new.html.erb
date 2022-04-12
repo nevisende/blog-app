@@ -1,5 +1,5 @@
-<h2>Sign up</h2>
 <div class="form-group">
+  <h2>Sign up</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="field">
@@ -19,7 +19,7 @@
       <%= f.text_field :photo, placeholder: "Photo url"%>
     </div>
     <div class="field">
-      <%= f.text_area :bio, placeholder:"Your bio..." %>
+      <%= f.text_area :bio, rows: 5, placeholder:"Your bio..." %>
     </div>
     <div class="actions">
       <%= f.submit "Sign up" %>
