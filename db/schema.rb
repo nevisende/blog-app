@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_04_110335) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_12_113126) do
   create_table "comments", force: :cascade do |t|
     t.text "text"
     t.datetime "created_at", null: false
@@ -31,8 +31,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_110335) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "comments_counter"
-    t.integer "likes_counter"
+    t.integer "comments_counter", default: 0
+    t.integer "likes_counter", default: 0
     t.text "text"
     t.string "title"
     t.datetime "created_at", null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_110335) do
     t.string "name"
     t.text "bio"
     t.string "photo"
-    t.integer "posts_counter"
+    t.integer "posts_counter", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
