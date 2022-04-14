@@ -1,4 +1,6 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @like = current_user.likes.new(like_params)
     @like.update_likes_counter
