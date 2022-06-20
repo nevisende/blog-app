@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show]
+    resources :posts, only: [:index, :show, :destroy]
   end
   get "/posts/new", to: "posts#new"
   post "/posts/create", to: "posts#create"
