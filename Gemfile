@@ -75,8 +75,7 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'rails-controller-testing'
-
 gem 'cancancan'
 gem 'capybara'
+gem 'rails-controller-testing'
 gem 'rubocop-rails'
