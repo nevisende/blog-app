@@ -14,7 +14,10 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show, :destroy]
+    resources :posts, only: [:index, :show, :destroy] do
+      resources :comments, only: [:create, :destroy]
+
+    end
   end
   get "/posts/new", to: "posts#new"
   post "/posts/create", to: "posts#create"
