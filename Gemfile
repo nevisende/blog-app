@@ -76,6 +76,7 @@ group :test do
 end
 
 gem 'cancancan'
+
 gem 'capybara'
 gem 'rails-controller-testing'
 gem 'rubocop-rails'
