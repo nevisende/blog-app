@@ -79,5 +79,5 @@ end
 gem 'rails-controller-testing'
 
 gem 'cancancan'
-gem 'rubocop-rails'
-gem 'capybara'
+gem 'capybara'gem 'rubocop-rails'
+
