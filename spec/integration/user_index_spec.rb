@@ -31,10 +31,8 @@ RSpec.describe 'Users index page', type: :feature do
   it 'should see the profile picture for each user' do
     img_url1 = page.all('img.user-card-photo')[0]['src']
     img_url2 = page.all('img.user-card-photo')[1]['src']
-    img_url3 = page.all('img.user-card-photo')[2]['src']
     expect(img_url1).to eql 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
     expect(img_url2).to eql 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
-    expect(img_url3).to eql 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
   end
 
   it 'should see the number of posts each user has written' do
