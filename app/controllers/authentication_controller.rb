@@ -8,7 +8,7 @@ class AuthenticationController < ApplicationController
 
     render json: { user: @user }, status: :ok
   end
-  
+
   def login
     @user = User.find_by_email(params[:email])
     if @user&.authenticate(params[:password])
