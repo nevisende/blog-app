@@ -3,5 +3,5 @@
   <%= form.hidden_field :post_id, value: @post.id %>
   <a href="<%= users_path + "/" + current_user.id.to_s %>"><%= current_user.name %></a>:
   <%= form.text_field :text %>
-  <%= form.submit %>
+  <%= form.submit "Create Comment" %>
 <% end %>   
