@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+  skip_before_action :authenticate_request
 
   def index
     @user = User.find(params[:user_id])
@@ -37,6 +37,16 @@ class PostsController < ApplicationController
     @post.destroy!
     redirect_to user_posts_path(id: @author.id), notice: 'Post was deleted successfully!'
   end
+
+  def posts
+    user = User.find(params[:user_id])
+
+    respond_to do |format|
+      format.json { render json: user.posts }
+    end
+  end
+
+  private
 
   def post_params
     params.require(:post).permit(:author_id, :title, :text, :comments_counter, :likes_counter)
