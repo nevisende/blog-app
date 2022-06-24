@@ -4,7 +4,7 @@ class AuthenticationController < ApplicationController
 
   def register
     @user = User.create! name: params[:name], email: params[:email], password: params[:password], bio: params[:bio],
-                         photo: params[:photo], confirmed_at: Time.now
+                         photo: params[:photo]
 
     render json: { user: @user }, status: :ok
   end
