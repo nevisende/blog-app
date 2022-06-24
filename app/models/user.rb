@@ -31,4 +31,8 @@ class User < ApplicationRecord
   def admin?
     role == 'admin'
   end
+
+  def authenticate(password)
+    valid_password?(password)
+  end
 end

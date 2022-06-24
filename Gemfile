@@ -80,3 +80,6 @@ gem 'cancancan'
 gem 'capybara'
 gem 'rails-controller-testing'
 gem 'rubocop-rails'
+
+gem 'bcrypt', '~> 3.1.7'
+gem 'jwt'
